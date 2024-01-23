@@ -16,6 +16,15 @@
         <input type="text" name="voto" id="name">
         <input type="submit" value="Invia">
     </form>
+    <!-- secondo from per parcheggio  -->
+    <form>
+        <label for="parcheggio">parcheggio</label>
+        <select name="parcheggio" id="parcheggio">
+            <option value="true">parcheggio</option>
+            <option value="false">non parcheggio</option>
+        </select>
+        <input type="submit" value="Invia">
+    </form>
     <?php
 
     // array con descrizione hotel
@@ -58,6 +67,7 @@
         ],
 
     ];
+
     // ricerca del valore 
     $name = $_GET['voto'];
     if (isset($name)) {
@@ -74,25 +84,24 @@
         </div>";
             };
     }
-
-
-
+    $controllo = $_GET['parcheggio'];
 
     // foreach per ogni elemnto
+    echo '<div class="container">';
+    echo '<div class="row">';
     foreach ($hotels as $nome)
-        echo "  
-        <table>
-          <tbody>
-          <tr>
-            <th>$nome[name]</th>
-            <td>$nome[description]</td>
-            <td>$nome[vote]</td>
-            <td>$nome[distance_to_center]</td>
-            <td>$nome[vote]</td>
-         </tr>
-         </tbody>
-      </table>
-"
+        echo "<div class='col-4 my-3 '>
+        <div class='bg-dark text-white'>
+            <h1>
+             $nome[name]
+            </h1>
+            <p>  $nome[description]</p>
+            <div> voto:  $nome[vote]</div>
+            <div>distanza:  $nome[distance_to_center]</div>
+         </div>
+        </div>";
+    echo '</div>';
+    echo '</div>';
     ?>
 </body>
 
