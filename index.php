@@ -12,7 +12,7 @@
 <body>
 
     <?php
-    // array con descrizionehotel
+    // array con descrizione hotel
     $hotels = [
 
         [
