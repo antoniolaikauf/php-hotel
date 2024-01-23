@@ -10,8 +10,14 @@
 </head>
 
 <body>
-
+    <!-- primo form per voto -->
+    <form>
+        <label for="name">voto</label>
+        <input type="text" name="voto" id="name">
+        <input type="submit" value="Invia">
+    </form>
     <?php
+
     // array con descrizione hotel
     $hotels = [
 
@@ -52,23 +58,44 @@
         ],
 
     ];
+    // ricerca del valore 
+    $name = $_GET['voto'];
+    if (isset($name)) {
+        foreach ($hotels as $nome)
+            if ($name == $nome['vote']) {
+                echo "<div>
+            <div>
+                $nome[name]
+                $nome[description]
+                $nome[vote]
+                $nome[distance_to_center]
+                $nome[vote]
+            </div>
+        </div>";
+            };
+    }
+
+
+
+
     // foreach per ogni elemnto
     foreach ($hotels as $nome)
         echo "  
         <table>
-          <thead>
-              
-          </thead>
           <tbody>
-          <th>'$nome[name]' </th>
-             <td>'$nome[description]'</td>
-             <td>'$nome[voter]'</td>
-             <td>'$nome[distance_to_center]'</td>
-             <td>'$nome[vote]'</td>
+          <tr>
+            <th>$nome[name]</th>
+            <td>$nome[description]</td>
+            <td>$nome[vote]</td>
+            <td>$nome[distance_to_center]</td>
+            <td>$nome[vote]</td>
+         </tr>
          </tbody>
       </table>
 "
     ?>
 </body>
+
+
 
 </html>
