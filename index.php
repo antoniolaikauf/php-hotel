@@ -52,7 +52,7 @@
         ],
 
     ];
-    // foreach per ogni elemento
+    // foreach per ogni elemnto
     foreach ($hotels as $nome)
         echo "  
         <table>
