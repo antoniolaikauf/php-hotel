@@ -57,9 +57,10 @@
         echo "  
         <table>
           <thead>
-              <th>'$nome[name]' </th>
+              
           </thead>
           <tbody>
+          <th>'$nome[name]' </th>
              <td>'$nome[description]'</td>
              <td>'$nome[voter]'</td>
              <td>'$nome[distance_to_center]'</td>
