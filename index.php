@@ -52,7 +52,7 @@
         ],
 
     ];
-
+    // foreach per ogni elemento
     foreach ($hotels as $nome)
         echo "  
         <table>
@@ -69,4 +69,5 @@
 "
     ?>
 </body>
+
 </html>
