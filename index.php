@@ -10,19 +10,16 @@
 </head>
 
 <body>
-    <!-- primo form per voto -->
-    <form>
-        <label for="voto">voto</label>
-        <input type="text" name="voto" id="voto">
-        <input type="submit" value="Invia">
-    </form>
     <!-- secondo from per parcheggio  -->
+    <!-- primo form per voto -->
     <form>
         <label for="parcheggio">parcheggio</label>
         <select name="parcheggio" id="parcheggio">
             <option value="presente">parcheggio</option>
             <option value="false">non parcheggio</option>
         </select>
+        <label for="voto">voto</label>
+        <input type="text" name="voto" id="voto">
         <input type="submit" value="Invia">
     </form>
     <?php
@@ -72,7 +69,8 @@
         $controllo = $_GET['parcheggio'];
         $name = $_GET['voto'];
         foreach ($hotels as $nome)
-            if ($controllo === 'presente' && $nome['parking'] === true || $name == $nome['vote']) {
+            // sistemato condizione
+            if (($controllo == 'presente' && $nome['parking'] || ($controllo == 'false' && !$nome['parking'])) && $name == $nome['vote']) {
                 echo "<div class='d-inline-block mx-3'>
             <h4>$nome[name]</h4>
             <p> $nome[description]</p>
@@ -92,7 +90,7 @@
             <h1>
              $nome[name]
             </h1>
-            <p>  $nome[description]</p>
+            <p> $nome[description] </p>
             <div> voto:  $nome[vote]</div>
             <div>distanza:  $nome[distance_to_center]</div>
          </div>
